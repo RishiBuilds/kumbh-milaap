@@ -13,8 +13,8 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#74d41aff" },
-    { media: "(prefers-color-scheme: dark)", color: "#3cbc25ff" },
+    { media: "(prefers-color-scheme: light)", color: "#74d41a" },
+    { media: "(prefers-color-scheme: dark)", color: "#3cbc25" },
   ],
 };
 
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   applicationName: siteConfig.name,
   keywords: [
-    "KumbhMilaap",
+    "Kumbh Milaap",
     "Kumbh Mela 2027",
     "Nashik Simhastha",
     "Missing Persons",
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
     "Family Reunification",
     "Pilgrim Safety",
   ],
-  authors: [{ name: "KumbhMilaap Team" }],
-  creator: "KumbhMilaap Team",
+  authors: [{ name: "Kumbh Milaap Team" }],
+  creator: "Kumbh Milaap Team",
   manifest: "/manifest.webmanifest",
   openGraph: {
     type: "website",
@@ -57,7 +57,6 @@ export const metadata: Metadata = {
       { url: "/icon.png", type: "image/png", sizes: "512x512" },
       { url: "/favicon.ico", type: "image/x-icon" },
     ],
-    apple: "/apple-icon.png",
   },
 };
 
@@ -75,6 +74,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
+
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
