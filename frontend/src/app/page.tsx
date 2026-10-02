@@ -176,7 +176,7 @@ export default function KioskPage() {
   const capturePassive = useCallback(() => {
     const image = passiveWebcamRef.current?.getScreenshot();
     if (image) {
-      safeStorageSet("khoj_passive_capture", { image, kiosk: selectedKiosk, time: new Date().toLocaleTimeString() });
+      safeStorageSet("km_passive_capture", { image, kiosk: selectedKiosk, time: new Date().toLocaleTimeString() });
     }
   }, [selectedKiosk]);
 
@@ -331,7 +331,7 @@ export default function KioskPage() {
     setTimeout(() => {
       if (scanType === "im_lost") {
         const lostPerson = { name: formData.name || "Unknown individual", image: imageSrc ?? "", kiosk: selectedKiosk };
-        safeStorageSet("khoj_lost_person", lostPerson);
+        safeStorageSet("km_lost_person", lostPerson);
         setResult({
           kind: "emergency",
           case_id: "EMERGENCY-HELP",
@@ -347,8 +347,8 @@ export default function KioskPage() {
           ],
         });
       } else {
-        const saved = safeStorageGet<MatchedPerson>("khoj_lost_person");
-        const passive = safeStorageGet<{ image: string; kiosk: string; time: string }>("khoj_passive_capture");
+        const saved = safeStorageGet<MatchedPerson>("km_lost_person");
+        const passive = safeStorageGet<{ image: string; kiosk: string; time: string }>("km_passive_capture");
 
         if (saved) {
           setResult({
@@ -410,8 +410,8 @@ export default function KioskPage() {
 
   const clearDatabase = () => {
     try {
-      localStorage.removeItem("khoj_lost_person");
-      localStorage.removeItem("khoj_passive_capture");
+      localStorage.removeItem("km_lost_person");
+      localStorage.removeItem("km_passive_capture");
     } catch {
     }
     alert("Demo data cleared. Ready for a new demo.");
