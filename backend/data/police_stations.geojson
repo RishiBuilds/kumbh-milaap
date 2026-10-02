@@ -1,0 +1,93 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7925, 20.0028] },
+      "properties": {
+        "id": "PS-001",
+        "name": "Panchvati Police Station",
+        "zone": "Zone B - Panchvati & Temples",
+        "phone": "+91-253-2513233",
+        "capacity": 45
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7900, 19.9960] },
+      "properties": {
+        "id": "PS-002",
+        "name": "Sarkarwada Police Station",
+        "zone": "Zone A - Ramkund & Ghats",
+        "phone": "+91-253-2572100",
+        "capacity": 60
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7870, 19.9700] },
+      "properties": {
+        "id": "PS-003",
+        "name": "Nashik Road Police Station",
+        "zone": "Zone D - Nashik Road & Transit",
+        "phone": "+91-253-2463100",
+        "capacity": 55
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7760, 20.0040] },
+      "properties": {
+        "id": "PS-004",
+        "name": "Bhadrakali Police Station",
+        "zone": "Zone C - Tapovan",
+        "phone": "+91-253-2524100",
+        "capacity": 35
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7910, 19.9935] },
+      "properties": {
+        "id": "PS-005",
+        "name": "Gangapur Naka Police Station",
+        "zone": "Zone F - CBS & Commercial",
+        "phone": "+91-253-2310500",
+        "capacity": 40
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7845, 20.0005] },
+      "properties": {
+        "id": "PS-006",
+        "name": "Dwarka Police Chowki",
+        "zone": "Zone E - Dwarka",
+        "phone": "+91-253-2575300",
+        "capacity": 25
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7880, 19.9965] },
+      "properties": {
+        "id": "PS-007",
+        "name": "Godavari Ghat Police Post",
+        "zone": "Zone A - Ramkund & Ghats",
+        "phone": "+91-253-2577200",
+        "capacity": 30
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7940, 20.0045] },
+      "properties": {
+        "id": "PS-008",
+        "name": "Mhasrul Police Station",
+        "zone": "Zone B - Panchvati & Temples",
+        "phone": "+91-253-2414500",
+        "capacity": 38
+      }
+    }
+  ]
+}

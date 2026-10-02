@@ -1,0 +1,170 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7895, 19.9972] },
+      "properties": {
+        "id": "CP-001",
+        "name": "Ramkund Main Ghat Entry",
+        "type": "ghat_entry",
+        "risk_level": "high",
+        "avg_crowd_density": 4500
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7902, 19.9978] },
+      "properties": {
+        "id": "CP-002",
+        "name": "Ramkund North Steps Entry",
+        "type": "ghat_entry",
+        "risk_level": "high",
+        "avg_crowd_density": 3800
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7888, 19.9968] },
+      "properties": {
+        "id": "CP-003",
+        "name": "Ahilya Bai Holkar Bridge",
+        "type": "bridge",
+        "risk_level": "high",
+        "avg_crowd_density": 5000
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7890, 19.9982] },
+      "properties": {
+        "id": "CP-004",
+        "name": "Sita Gufa Narrow Lane",
+        "type": "narrow_lane",
+        "risk_level": "medium",
+        "avg_crowd_density": 1500
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7908, 19.9988] },
+      "properties": {
+        "id": "CP-005",
+        "name": "Kalaram Temple Main Gate",
+        "type": "gate",
+        "risk_level": "high",
+        "avg_crowd_density": 4200
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7918, 20.0025] },
+      "properties": {
+        "id": "CP-006",
+        "name": "Panchvati Market Intersection",
+        "type": "intersection",
+        "risk_level": "medium",
+        "avg_crowd_density": 2200
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7930, 20.0032] },
+      "properties": {
+        "id": "CP-007",
+        "name": "Panchvati Temple Lane",
+        "type": "narrow_lane",
+        "risk_level": "medium",
+        "avg_crowd_density": 1800
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7748, 20.0048] },
+      "properties": {
+        "id": "CP-008",
+        "name": "Tapovan Garden Gate",
+        "type": "gate",
+        "risk_level": "low",
+        "avg_crowd_density": 800
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7758, 20.0052] },
+      "properties": {
+        "id": "CP-009",
+        "name": "Tapovan River Bridge",
+        "type": "bridge",
+        "risk_level": "medium",
+        "avg_crowd_density": 1200
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7862, 19.9682] },
+      "properties": {
+        "id": "CP-010",
+        "name": "Nashik Road Station Foot Overbridge",
+        "type": "bridge",
+        "risk_level": "high",
+        "avg_crowd_density": 3500
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7855, 19.9675] },
+      "properties": {
+        "id": "CP-011",
+        "name": "Nashik Road Station Main Gate",
+        "type": "gate",
+        "risk_level": "high",
+        "avg_crowd_density": 4000
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7912, 19.9948] },
+      "properties": {
+        "id": "CP-012",
+        "name": "CBS Bus Bay Intersection",
+        "type": "intersection",
+        "risk_level": "medium",
+        "avg_crowd_density": 2500
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7918, 19.9942] },
+      "properties": {
+        "id": "CP-013",
+        "name": "CBS Market Narrow Lane",
+        "type": "narrow_lane",
+        "risk_level": "medium",
+        "avg_crowd_density": 1900
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7848, 20.0012] },
+      "properties": {
+        "id": "CP-014",
+        "name": "Dwarka Circle Intersection",
+        "type": "intersection",
+        "risk_level": "low",
+        "avg_crowd_density": 900
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7842, 20.0018] },
+      "properties": {
+        "id": "CP-015",
+        "name": "Godavari Dwarka Bridge",
+        "type": "bridge",
+        "risk_level": "medium",
+        "avg_crowd_density": 1600
+      }
+    }
+  ]
+}

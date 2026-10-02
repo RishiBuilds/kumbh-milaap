@@ -1,0 +1,125 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [73.7870, 19.9955],
+          [73.7915, 19.9955],
+          [73.7915, 19.9995],
+          [73.7870, 19.9995],
+          [73.7870, 19.9955]
+        ]]
+      },
+      "properties": {
+        "id": "ZONE-A",
+        "name": "Ramkund & Ghats",
+        "description": "Core bathing ghat area along Godavari river including Ramkund, Sita Gufa, and surrounding ghats. Highest pilgrim concentration during Shahi Snan.",
+        "has_medical": true,
+        "has_shelter": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [73.7900, 19.9995],
+          [73.7950, 19.9995],
+          [73.7950, 20.0060],
+          [73.7900, 20.0060],
+          [73.7900, 19.9995]
+        ]]
+      },
+      "properties": {
+        "id": "ZONE-B",
+        "name": "Panchvati & Temples",
+        "description": "Historic temple district including Kalaram Temple, Panchvati area, and surrounding markets. Dense residential lanes.",
+        "has_medical": true,
+        "has_shelter": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [73.7720, 20.0020],
+          [73.7790, 20.0020],
+          [73.7790, 20.0080],
+          [73.7720, 20.0080],
+          [73.7720, 20.0020]
+        ]]
+      },
+      "properties": {
+        "id": "ZONE-C",
+        "name": "Tapovan",
+        "description": "Tapovan area along the Godavari with ashrams, gardens, and pilgrimage sites. Relatively open terrain with river access.",
+        "has_medical": false,
+        "has_shelter": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [73.7830, 19.9650],
+          [73.7900, 19.9650],
+          [73.7900, 19.9720],
+          [73.7830, 19.9720],
+          [73.7830, 19.9650]
+        ]]
+      },
+      "properties": {
+        "id": "ZONE-D",
+        "name": "Nashik Road & Transit",
+        "description": "Major transit hub including Nashik Road railway station, bus depot, and connecting roads. Primary arrival/departure point for pilgrims.",
+        "has_medical": true,
+        "has_shelter": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [73.7820, 19.9995],
+          [73.7870, 19.9995],
+          [73.7870, 20.0040],
+          [73.7820, 20.0040],
+          [73.7820, 19.9995]
+        ]]
+      },
+      "properties": {
+        "id": "ZONE-E",
+        "name": "Dwarka",
+        "description": "Dwarka residential and commercial area west of Panchvati. Moderate density with mixed residential and commercial use.",
+        "has_medical": false,
+        "has_shelter": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [73.7895, 19.9915],
+          [73.7945, 19.9915],
+          [73.7945, 19.9955],
+          [73.7895, 19.9955],
+          [73.7895, 19.9915]
+        ]]
+      },
+      "properties": {
+        "id": "ZONE-F",
+        "name": "CBS & Commercial",
+        "description": "Central Bus Stand area and surrounding commercial district. Key bus transit point with heavy vehicular and pedestrian traffic.",
+        "has_medical": true,
+        "has_shelter": false
+      }
+    }
+  ]
+}

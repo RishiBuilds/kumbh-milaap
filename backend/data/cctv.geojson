@@ -1,0 +1,203 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7898, 19.9975] },
+      "properties": {
+        "id": "CCTV-001",
+        "name": "Ramkund Main Ghat Camera",
+        "zone": "Zone A - Ramkund & Ghats",
+        "coverage_radius_m": 120,
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7892, 19.9970] },
+      "properties": {
+        "id": "CCTV-002",
+        "name": "Ramkund South Steps Camera",
+        "zone": "Zone A - Ramkund & Ghats",
+        "coverage_radius_m": 100,
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7905, 19.9980] },
+      "properties": {
+        "id": "CCTV-003",
+        "name": "Ramkund East Entrance Camera",
+        "zone": "Zone A - Ramkund & Ghats",
+        "coverage_radius_m": 80,
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7910, 19.9985] },
+      "properties": {
+        "id": "CCTV-004",
+        "name": "Kalaram Temple Gate Camera",
+        "zone": "Zone B - Panchvati & Temples",
+        "coverage_radius_m": 100,
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7915, 19.9990] },
+      "properties": {
+        "id": "CCTV-005",
+        "name": "Kalaram Temple Road Camera",
+        "zone": "Zone B - Panchvati & Temples",
+        "coverage_radius_m": 150,
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7920, 20.0030] },
+      "properties": {
+        "id": "CCTV-006",
+        "name": "Panchvati Main Road Camera",
+        "zone": "Zone B - Panchvati & Temples",
+        "coverage_radius_m": 130,
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7925, 20.0035] },
+      "properties": {
+        "id": "CCTV-007",
+        "name": "Panchvati Market Junction Camera",
+        "zone": "Zone B - Panchvati & Temples",
+        "coverage_radius_m": 110,
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7885, 19.9980] },
+      "properties": {
+        "id": "CCTV-008",
+        "name": "Sita Gufa Approach Camera",
+        "zone": "Zone A - Ramkund & Ghats",
+        "coverage_radius_m": 90,
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7750, 20.0050] },
+      "properties": {
+        "id": "CCTV-009",
+        "name": "Tapovan Garden Entrance Camera",
+        "zone": "Zone C - Tapovan",
+        "coverage_radius_m": 100,
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7755, 20.0045] },
+      "properties": {
+        "id": "CCTV-010",
+        "name": "Tapovan River Bank Camera",
+        "zone": "Zone C - Tapovan",
+        "coverage_radius_m": 140,
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7760, 20.0055] },
+      "properties": {
+        "id": "CCTV-011",
+        "name": "Tapovan Bridge Camera",
+        "zone": "Zone C - Tapovan",
+        "coverage_radius_m": 120,
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7860, 19.9680] },
+      "properties": {
+        "id": "CCTV-012",
+        "name": "Nashik Road Station Platform Camera",
+        "zone": "Zone D - Nashik Road & Transit",
+        "coverage_radius_m": 80,
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7865, 19.9685] },
+      "properties": {
+        "id": "CCTV-013",
+        "name": "Nashik Road Station Exit Camera",
+        "zone": "Zone D - Nashik Road & Transit",
+        "coverage_radius_m": 100,
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7870, 19.9690] },
+      "properties": {
+        "id": "CCTV-014",
+        "name": "Nashik Road Bus Depot Camera",
+        "zone": "Zone D - Nashik Road & Transit",
+        "coverage_radius_m": 110,
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7915, 19.9945] },
+      "properties": {
+        "id": "CCTV-015",
+        "name": "CBS Main Gate Camera",
+        "zone": "Zone F - CBS & Commercial",
+        "coverage_radius_m": 130,
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7920, 19.9940] },
+      "properties": {
+        "id": "CCTV-016",
+        "name": "CBS Ticket Counter Camera",
+        "zone": "Zone F - CBS & Commercial",
+        "coverage_radius_m": 70,
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7850, 20.0010] },
+      "properties": {
+        "id": "CCTV-017",
+        "name": "Dwarka Circle Camera",
+        "zone": "Zone E - Dwarka",
+        "coverage_radius_m": 150,
+        "status": "active"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [73.7845, 20.0015] },
+      "properties": {
+        "id": "CCTV-018",
+        "name": "Dwarka Bridge Approach Camera",
+        "zone": "Zone E - Dwarka",
+        "coverage_radius_m": 100,
+        "status": "active"
+      }
+    }
+  ]
+}
