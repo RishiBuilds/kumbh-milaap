@@ -1,129 +1,168 @@
 from __future__ import annotations
 
-from datetime import datetime, timezone
-from typing import Any
+import sqlite3
+import threading
+from contextlib import contextmanager
+from pathlib import Path
+from typing import TYPE_CHECKING, Iterator
 
-from fastapi import APIRouter, HTTPException
-from fastapi import status as http_status
+if TYPE_CHECKING:
+    from ..models import CaseResponse
 
-from .. import db as case_store
-from ..qr_generator import generate_case_id, generate_qr_code
-from ..models import (
-    CaseResponse,
-    CaseStatus,
-    CaseStatusUpdate,
-    MissingPersonReport,
-    SearchRecommendation,
-)
-from ..recommendation import RecommendationEngine
-from ..ai_summary import generate_ai_summary
+DB_PATH = Path(__file__).resolve().parent.parent / "runtime" / "cases.db"
+BUSY_TIMEOUT_MS = 5000
 
-router = APIRouter(prefix="/api/cases", tags=["cases"])
-
-engine = RecommendationEngine()
+_init_lock = threading.Lock()
+_initialized_path: Path | None = None
 
 
-def _not_found(case_id: str) -> HTTPException:
-    return HTTPException(
-        status_code=http_status.HTTP_404_NOT_FOUND,
-        detail=f"Case '{case_id}' not found.",
-    )
+def _configure(conn: sqlite3.Connection) -> None:
+    conn.execute(f"PRAGMA busy_timeout = {BUSY_TIMEOUT_MS}")
+    conn.execute("PRAGMA journal_mode = WAL")
+    conn.execute("PRAGMA synchronous = NORMAL")
 
 
-def _zone_name(zone: dict[str, Any] | None) -> str | None:
-    if not zone:
-        return None
-    return zone.get("name") or zone.get("Name")
+def _ensure_schema(conn: sqlite3.Connection) -> None:
+    global _initialized_path
+    if _initialized_path == DB_PATH:
+        return
+    with _init_lock:
+        if _initialized_path == DB_PATH:
+            return
+        conn.executescript(
+            """
+            CREATE TABLE IF NOT EXISTS cases (
+                case_id TEXT PRIMARY KEY,
+                status  TEXT NOT NULL,
+                data    TEXT NOT NULL
+            );
+            CREATE INDEX IF NOT EXISTS idx_cases_status ON cases (status);
+            """
+        )
+        _initialized_path = DB_PATH
 
 
-def _build_recommendation(report: MissingPersonReport) -> SearchRecommendation:
-    person = report.person
-    last_seen = report.last_seen
-
+@contextmanager
+def _connect() -> Iterator[sqlite3.Connection]:
+    DB_PATH.parent.mkdir(parents=True, exist_ok=True)
+    conn = sqlite3.connect(str(DB_PATH), timeout=BUSY_TIMEOUT_MS / 1000, isolation_level=None)
     try:
-        data = engine.get_recommendation(
-            lat=last_seen.latitude,
-            lon=last_seen.longitude,
-            age=person.age,
-            gender=person.gender.value,
-            minutes_since=last_seen.minutes_since,
-        )
-    except ValueError as exc:
-        raise HTTPException(
-            status_code=http_status.HTTP_422_UNPROCESSABLE_ENTITY,
-            detail=str(exc),
-        ) from exc
-
-    summary = generate_ai_summary(
-        person_name=person.name,
-        age=person.age,
-        gender=person.gender.value,
-        clothing=person.clothing_description,
-        zone_name=_zone_name(data["current_zone"]),
-        nearest_police=data["nearest_police"].name,
-        police_distance_m=data["nearest_police"].distance_m,
-        nearby_cctv_count=len(data["nearby_cctv"]),
-        nearby_chokepoint_count=len(data["nearby_chokepoints"]),
-        priority_zones=[
-            {"zone_name": z.zone_name, "score": z.score, "reason": z.reason}
-            for z in data["priority_zones"]
-        ],
-        search_radius_m=data["search_radius_m"],
-        confidence=data["confidence"],
-        minutes_since=last_seen.minutes_since,
-    )
-
-    return SearchRecommendation(**data, ai_summary=summary)
+        _configure(conn)
+        _ensure_schema(conn)
+        yield conn
+    finally:
+        conn.close()
 
 
-@router.post("/", response_model=CaseResponse, status_code=http_status.HTTP_201_CREATED)
-def create_case(report: MissingPersonReport) -> CaseResponse:
-    case_id = generate_case_id(exists=case_store.exists)
-    recommendation = _build_recommendation(report)
-
-    case = CaseResponse(
-        case_id=case_id,
-        created_at=datetime.now(timezone.utc),
-        report=report,
-        recommendation=recommendation,
-        qr_code_base64=generate_qr_code(case_id),
-        status=CaseStatus.active,
-    )
-    case_store.save(case)
-    return case
+@contextmanager
+def _write() -> Iterator[sqlite3.Connection]:
+    with _connect() as conn:
+        conn.execute("BEGIN IMMEDIATE")
+        try:
+            yield conn
+        except BaseException:
+            conn.execute("ROLLBACK")
+            raise
+        else:
+            conn.execute("COMMIT")
 
 
-@router.get("/", response_model=list[CaseResponse])
-def list_cases(status: CaseStatus | None = None) -> list[CaseResponse]:
-    return case_store.list_all(status.value if status else None)
+def _case_model() -> type[CaseResponse]:
+    from ..models import CaseResponse
+
+    return CaseResponse
 
 
-@router.get("/{case_id}", response_model=CaseResponse)
-def get_case(case_id: str) -> CaseResponse:
-    case = case_store.get(case_id)
-    if case is None:
-        raise _not_found(case_id)
-    return case
+def _status_value(status: object) -> str:
+    return str(getattr(status, "value", status))
 
 
-@router.patch("/{case_id}/status", response_model=CaseResponse)
-def update_case_status(case_id: str, update: CaseStatusUpdate) -> CaseResponse:
-    case = case_store.get(case_id)
-    if case is None:
-        raise _not_found(case_id)
-
-    if case.status == update.status:
-        raise HTTPException(
-            status_code=http_status.HTTP_409_CONFLICT,
-            detail=f"Case is already '{case.status.value}'.",
-        )
-    if case.status == CaseStatus.closed:
-        raise HTTPException(
-            status_code=http_status.HTTP_409_CONFLICT,
-            detail="Cannot reopen a closed case.",
+def save(case: CaseResponse) -> None:
+    with _write() as conn:
+        conn.execute(
+            """
+            INSERT INTO cases (case_id, status, data) VALUES (?, ?, ?)
+            ON CONFLICT(case_id) DO UPDATE SET
+                status = excluded.status,
+                data = excluded.data
+            """,
+            (case.case_id, _status_value(case.status), case.model_dump_json()),
         )
 
-    updated = case_store.update_status(case_id, update.status.value)
-    if updated is None:
-        raise _not_found(case_id)
+
+def get(case_id: str) -> CaseResponse | None:
+    with _connect() as conn:
+        row = conn.execute("SELECT data FROM cases WHERE case_id = ?", (case_id,)).fetchone()
+    return _case_model().model_validate_json(row[0]) if row else None
+
+
+def exists(case_id: str) -> bool:
+    with _connect() as conn:
+        row = conn.execute("SELECT 1 FROM cases WHERE case_id = ? LIMIT 1", (case_id,)).fetchone()
+    return row is not None
+
+
+def list_all(status: str | None = None) -> list[CaseResponse]:
+    query = "SELECT data FROM cases"
+    params: tuple[str, ...] = ()
+    if status:
+        query += " WHERE status = ?"
+        params = (status,)
+    query += " ORDER BY rowid"
+    with _connect() as conn:
+        rows = conn.execute(query, params).fetchall()
+    model = _case_model()
+    return [model.model_validate_json(row[0]) for row in rows]
+
+
+def update_status(case_id: str, new_status: str) -> CaseResponse | None:
+    from ..models import CaseStatus
+
+    status = CaseStatus(new_status)
+    model = _case_model()
+    with _write() as conn:
+        row = conn.execute("SELECT data FROM cases WHERE case_id = ?", (case_id,)).fetchone()
+        if row is None:
+            return None
+        updated = model.model_validate_json(row[0]).model_copy(update={"status": status})
+        conn.execute(
+            "UPDATE cases SET status = ?, data = ? WHERE case_id = ?",
+            (status.value, updated.model_dump_json(), case_id),
+        )
     return updated
+
+
+def count_by_status() -> dict[str, int]:
+    with _connect() as conn:
+        rows = conn.execute("SELECT status, COUNT(*) FROM cases GROUP BY status").fetchall()
+    return {status: total for status, total in rows}
+
+
+def count_by_zone(unknown_label: str = "Unknown") -> dict[str, int]:
+    query = """
+        SELECT COALESCE(
+                   NULLIF(json_extract(data, '$.recommendation.current_zone.name'), ''),
+                   NULLIF(json_extract(data, '$.recommendation.current_zone.Name'), ''),
+                   ?
+               ) AS zone,
+               COUNT(*)
+        FROM cases
+        GROUP BY zone
+    """
+    with _connect() as conn:
+        rows = conn.execute(query, (unknown_label,)).fetchall()
+    return {zone: total for zone, total in rows}
+
+
+def average_minutes_since(statuses: tuple[str, ...]) -> float | None:
+    if not statuses:
+        return None
+    placeholders = ",".join("?" for _ in statuses)
+    query = f"""
+        SELECT AVG(CAST(json_extract(data, '$.report.last_seen.minutes_since') AS REAL))
+        FROM cases
+        WHERE status IN ({placeholders})
+    """
+    with _connect() as conn:
+        row = conn.execute(query, statuses).fetchone()
+    return row[0] if row and row[0] is not None else None
