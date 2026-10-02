@@ -1,6 +1,8 @@
 <div align="center">
 
-# <img src="https://api.iconify.design/lucide/flag.svg?color=%23FF9933" height="34" align="absmiddle" alt=""> Kumbh Milaap
+<img src="https://api.iconify.design/mdi/flag-variant.svg?color=%23FF9933" width="72" height="72" alt="Kumbh Milaap">
+
+# Kumbh Milaap
 
 ### _Reuniting Families, One Connection at a Time_
 
@@ -30,26 +32,28 @@
 ---
 
 <a id="overview"></a>
-## <img src="https://api.iconify.design/lucide/book-open.svg?color=%23FF9933" height="26" align="absmiddle" alt=""> Overview
+
+## <img src="https://api.iconify.design/lucide/book-open.svg?color=%23FF9933" width="26" height="26" align="absmiddle" alt=""> Overview
 
 The **Nashik Simhastha Kumbh Mela 2027** will host tens of millions of pilgrims along the Godavari River. In dense crowds, with high ambient noise and intermittent cellular connectivity, thousands of people, predominantly elderly individuals and young children, are separated from their families every day. Paper registers and loudspeaker announcements waste the critical early hours.
 
 **Kumbh Milaap (KHOJ)** replaces ad-hoc search with a structured pipeline:
 
-| Stage | What it does |
-|---|---|
-| **1. Intake** | Guided multi-step kiosk wizard with live webcam capture. Issues a printable tracking pass with a unique Case ID and QR code. |
-| **2. Triage** | Heuristic engine ranks zones, gates, and CCTV checkpoints so search teams know where to go first. |
+| Stage         | What it does                                                                                                                                       |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1. Intake** | Guided multi-step kiosk wizard with live webcam capture. Issues a printable tracking pass with a unique Case ID and QR code.                       |
+| **2. Triage** | Heuristic engine ranks zones, gates, and CCTV checkpoints so search teams know where to go first.                                                  |
 | **3. Vision** | Quality-gated image analysis, garment color classification, person and face detection, and optional advisory face embeddings, all running locally. |
-| **4. Review** | Every candidate match is an advisory flag. A human officer must verify it before any action is taken. |
+| **4. Review** | Every candidate match is an advisory flag. A human officer must verify it before any action is taken.                                              |
 
 ---
 
 <a id="features"></a>
-## <img src="https://api.iconify.design/lucide/zap.svg?color=%23FF9933" height="26" align="absmiddle" alt=""> Features
+
+## <img src="https://api.iconify.design/lucide/zap.svg?color=%23FF9933" width="26" height="26" align="absmiddle" alt=""> Features
 
 <details open>
-<summary><img src="https://api.iconify.design/lucide/monitor-smartphone.svg?color=%23FF9933" height="20" align="absmiddle" alt=""> <b>Public kiosk and report wizard</b></summary>
+<summary><img src="https://api.iconify.design/lucide/monitor-smartphone.svg?color=%23FF9933" width="20" height="20" align="absmiddle" alt=""> <b>Public kiosk and report wizard</b></summary>
 <br/>
 
 - Large touch targets, clear step progression, and a multilingual-ready layout for high-stress use.
@@ -60,7 +64,7 @@ The **Nashik Simhastha Kumbh Mela 2027** will host tens of millions of pilgrims 
 </details>
 
 <details open>
-<summary><img src="https://api.iconify.design/lucide/map-pin.svg?color=%23FF9933" height="20" align="absmiddle" alt=""> <b>Geospatial triage and priority engine</b></summary>
+<summary><img src="https://api.iconify.design/lucide/map-pin.svg?color=%23FF9933" width="20" height="20" align="absmiddle" alt=""> <b>Geospatial triage and priority engine</b></summary>
 <br/>
 
 - Scores search zones using elapsed time, chokepoint proximity, and camera density.
@@ -71,7 +75,7 @@ The **Nashik Simhastha Kumbh Mela 2027** will host tens of millions of pilgrims 
 </details>
 
 <details open>
-<summary><img src="https://api.iconify.design/lucide/scan-eye.svg?color=%23FF9933" height="20" align="absmiddle" alt=""> <b>Modular computer vision (<code>app.cv</code>)</b></summary>
+<summary><img src="https://api.iconify.design/lucide/scan-eye.svg?color=%23FF9933" width="20" height="20" align="absmiddle" alt=""> <b>Modular computer vision (<code>app.cv</code>)</b></summary>
 <br/>
 
 - **Quality gating:** Laplacian-variance blur check, brightness check, and resolution validation.
@@ -82,7 +86,7 @@ The **Nashik Simhastha Kumbh Mela 2027** will host tens of millions of pilgrims 
 </details>
 
 <details open>
-<summary><img src="https://api.iconify.design/lucide/layout-dashboard.svg?color=%23FF9933" height="20" align="absmiddle" alt=""> <b>Command center and admin dashboard</b></summary>
+<summary><img src="https://api.iconify.design/lucide/layout-dashboard.svg?color=%23FF9933" width="20" height="20" align="absmiddle" alt=""> <b>Command center and admin dashboard</b></summary>
 <br/>
 
 - Live metrics: total reports, active searches, verified matches, reunited cases.
@@ -94,7 +98,8 @@ The **Nashik Simhastha Kumbh Mela 2027** will host tens of millions of pilgrims 
 ---
 
 <a id="architecture"></a>
-## <img src="https://api.iconify.design/lucide/network.svg?color=%23FF9933" height="26" align="absmiddle" alt=""> Architecture
+
+## <img src="https://api.iconify.design/lucide/network.svg?color=%23FF9933" width="26" height="26" align="absmiddle" alt=""> Architecture
 
 ```mermaid
 flowchart TB
@@ -153,15 +158,16 @@ sequenceDiagram
 ---
 
 <a id="quick-start"></a>
-## <img src="https://api.iconify.design/lucide/rocket.svg?color=%23FF9933" height="26" align="absmiddle" alt=""> Quick Start
+
+## <img src="https://api.iconify.design/lucide/rocket.svg?color=%23FF9933" width="26" height="26" align="absmiddle" alt=""> Quick Start
 
 ### Prerequisites
 
-| Tool | Version |
-|---|---|
-| Python | 3.11+ |
-| Node.js | A version supported by Next.js 16 |
-| Docker + Compose | Optional, for the one-command path |
+| Tool               | Version                                                                    |
+| ------------------ | -------------------------------------------------------------------------- |
+| Python             | 3.11+                                                                      |
+| Node.js            | A version supported by Next.js 16                                          |
+| Docker + Compose   | Optional, for the one-command path                                         |
 | ONNX model weights | Required only for the vision features; see [Model weights](#model-weights) |
 
 ### Option 1: Docker Compose (recommended)
@@ -170,11 +176,11 @@ sequenceDiagram
 docker compose up --build
 ```
 
-| Service | URL |
-|---|---|
-| Frontend | http://localhost:3000 |
-| API docs (Swagger) | http://localhost:8000/docs |
-| API docs (ReDoc) | http://localhost:8000/redoc |
+| Service            | URL                         |
+| ------------------ | --------------------------- |
+| Frontend           | http://localhost:3000       |
+| API docs (Swagger) | http://localhost:8000/docs  |
+| API docs (ReDoc)   | http://localhost:8000/redoc |
 
 ### Option 2: Manual local development
 
@@ -203,6 +209,7 @@ npm run dev            # http://localhost:3000
 ```
 
 <a id="model-weights"></a>
+
 ### Model weights
 
 The vision pipeline loads `.onnx` files from `KUMBH_CV_MODELS_DIR` (default `runtime/models`). Place the YOLOv8-Small, SCRFD-10G, and ArcFace weights there before enabling person detection, face detection, or embeddings. Check [Model Licensing](#model-licensing) first, since the upstream checkpoints carry restrictions.
@@ -210,23 +217,24 @@ The vision pipeline loads `.onnx` files from `KUMBH_CV_MODELS_DIR` (default `run
 ---
 
 <a id="configuration"></a>
-## <img src="https://api.iconify.design/lucide/settings-2.svg?color=%23FF9933" height="26" align="absmiddle" alt=""> Configuration
+
+## <img src="https://api.iconify.design/lucide/settings-2.svg?color=%23FF9933" width="26" height="26" align="absmiddle" alt=""> Configuration
 
 ### Backend (`backend/`)
 
 Set via `.env` or environment variables.
 
-| Variable | Default | Description |
-|---|---|---|
-| `KUMBH_API_VERSION` | `1.0.0` | API version tag |
-| `KUMBH_LOG_LEVEL` | `INFO` | `DEBUG`, `INFO`, `WARNING`, or `ERROR` |
-| `KUMBH_CORS_ORIGINS` | `http://localhost:3000,...` | Comma-separated allowed origins |
-| `KUMBH_CV_DEVICE` | `cpu` | Inference provider: `cpu`, `cuda`, or `dml` |
-| `KUMBH_CV_MODELS_DIR` | `runtime/models` | Directory containing `.onnx` weights |
-| `KUMBH_CV_BLUR_THRESHOLD` | `50.0` | Minimum Laplacian variance for a frame to count as sharp |
-| `KUMBH_CV_YOLO_CONF` | `0.35` | Minimum confidence for person detections |
-| `KUMBH_CV_SCRFD_CONF` | `0.50` | Minimum confidence for face detections |
-| `KUMBH_CV_MATCH_CANDIDATE_THRESHOLD` | `0.65` | Cosine similarity needed to raise a candidate-match flag |
+| Variable                             | Default                     | Description                                              |
+| ------------------------------------ | --------------------------- | -------------------------------------------------------- |
+| `KUMBH_API_VERSION`                  | `1.0.0`                     | API version tag                                          |
+| `KUMBH_LOG_LEVEL`                    | `INFO`                      | `DEBUG`, `INFO`, `WARNING`, or `ERROR`                   |
+| `KUMBH_CORS_ORIGINS`                 | `http://localhost:3000,...` | Comma-separated allowed origins                          |
+| `KUMBH_CV_DEVICE`                    | `cpu`                       | Inference provider: `cpu`, `cuda`, or `dml`              |
+| `KUMBH_CV_MODELS_DIR`                | `runtime/models`            | Directory containing `.onnx` weights                     |
+| `KUMBH_CV_BLUR_THRESHOLD`            | `50.0`                      | Minimum Laplacian variance for a frame to count as sharp |
+| `KUMBH_CV_YOLO_CONF`                 | `0.35`                      | Minimum confidence for person detections                 |
+| `KUMBH_CV_SCRFD_CONF`                | `0.50`                      | Minimum confidence for face detections                   |
+| `KUMBH_CV_MATCH_CANDIDATE_THRESHOLD` | `0.65`                      | Cosine similarity needed to raise a candidate-match flag |
 
 ### Frontend (`frontend/.env.local`)
 
@@ -236,21 +244,22 @@ NEXT_PUBLIC_API_URL=http://localhost:8000
 
 ### Tuning guide
 
-| Symptom | Adjust |
-|---|---|
-| Good photos rejected as blurry | Lower `KUMBH_CV_BLUR_THRESHOLD` |
-| Blurry frames reaching the index | Raise `KUMBH_CV_BLUR_THRESHOLD` |
-| Missed people or faces in crowds | Lower `KUMBH_CV_YOLO_CONF` / `KUMBH_CV_SCRFD_CONF` |
-| Spurious detections | Raise the same two values |
-| Too many candidate flags for officers to review | Raise `KUMBH_CV_MATCH_CANDIDATE_THRESHOLD` |
-| Missing true candidates | Lower `KUMBH_CV_MATCH_CANDIDATE_THRESHOLD` |
+| Symptom                                         | Adjust                                             |
+| ----------------------------------------------- | -------------------------------------------------- |
+| Good photos rejected as blurry                  | Lower `KUMBH_CV_BLUR_THRESHOLD`                    |
+| Blurry frames reaching the index                | Raise `KUMBH_CV_BLUR_THRESHOLD`                    |
+| Missed people or faces in crowds                | Lower `KUMBH_CV_YOLO_CONF` / `KUMBH_CV_SCRFD_CONF` |
+| Spurious detections                             | Raise the same two values                          |
+| Too many candidate flags for officers to review | Raise `KUMBH_CV_MATCH_CANDIDATE_THRESHOLD`         |
+| Missing true candidates                         | Lower `KUMBH_CV_MATCH_CANDIDATE_THRESHOLD`         |
 
 Lowering the match threshold trades officer workload for recall. Calibrate it on representative data before field use.
 
 ---
 
 <a id="computer-vision"></a>
-## <img src="https://api.iconify.design/lucide/scan-eye.svg?color=%23FF9933" height="26" align="absmiddle" alt=""> Computer Vision Pipeline
+
+## <img src="https://api.iconify.design/lucide/scan-eye.svg?color=%23FF9933" width="26" height="26" align="absmiddle" alt=""> Computer Vision Pipeline
 
 ```mermaid
 flowchart LR
@@ -265,38 +274,40 @@ flowchart LR
     SIM -- no --> NONE["No flag"]
 ```
 
-| Module | Technique | Notes |
-|---|---|---|
-| Quality assessor | Laplacian variance, brightness, resolution checks | Stops low-quality frames from polluting index records |
-| Clothing extractor | HSV color-space classification | Tuned for saffron, white, and other common pilgrimage garments |
-| Person detector | YOLOv8-Small, ONNX | Confidence floor via `KUMBH_CV_YOLO_CONF` |
-| Face detector | SCRFD-10G, ONNX | Confidence floor via `KUMBH_CV_SCRFD_CONF` |
-| Embedder | ArcFace, 512-d, L2-normalized | Because vectors are normalized, cosine similarity reduces to a dot product |
+| Module             | Technique                                         | Notes                                                                      |
+| ------------------ | ------------------------------------------------- | -------------------------------------------------------------------------- |
+| Quality assessor   | Laplacian variance, brightness, resolution checks | Stops low-quality frames from polluting index records                      |
+| Clothing extractor | HSV color-space classification                    | Tuned for saffron, white, and other common pilgrimage garments             |
+| Person detector    | YOLOv8-Small, ONNX                                | Confidence floor via `KUMBH_CV_YOLO_CONF`                                  |
+| Face detector      | SCRFD-10G, ONNX                                   | Confidence floor via `KUMBH_CV_SCRFD_CONF`                                 |
+| Embedder           | ArcFace, 512-d, L2-normalized                     | Because vectors are normalized, cosine similarity reduces to a dot product |
 
 ---
 
 <a id="privacy"></a>
-## <img src="https://api.iconify.design/lucide/shield-check.svg?color=%23FF9933" height="26" align="absmiddle" alt=""> Privacy and Responsible AI
+
+## <img src="https://api.iconify.design/lucide/shield-check.svg?color=%23FF9933" width="26" height="26" align="absmiddle" alt=""> Privacy and Responsible AI
 
 Kumbh Milaap is designed to align with India's **Digital Personal Data Protection (DPDP) Act**. The controls below are enforced in the system's design.
 
-| Principle | Implementation |
-|---|---|
-| **Biometric isolation** | Raw face embeddings are treated as sensitive identifiers and are excluded from public listings, unauthenticated endpoints, and printed cards. |
-| **Human in the loop** | Matches are advisory flags (`requires_human_verification = True`). The system never auto-resolves or auto-identifies a case. |
-| **No third-party cloud** | Inference runs on-premise or on the edge kiosk. Biometric data is not sent to external APIs. |
-| **Auditability** | Status transitions carry timestamps so every case change can be traced. |
+| Principle                | Implementation                                                                                                                                |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Biometric isolation**  | Raw face embeddings are treated as sensitive identifiers and are excluded from public listings, unauthenticated endpoints, and printed cards. |
+| **Human in the loop**    | Matches are advisory flags (`requires_human_verification = True`). The system never auto-resolves or auto-identifies a case.                  |
+| **No third-party cloud** | Inference runs on-premise or on the edge kiosk. Biometric data is not sent to external APIs.                                                  |
+| **Auditability**         | Status transitions carry timestamps so every case change can be traced.                                                                       |
 
 > This section describes engineering controls, not legal advice. Operational deployment should be reviewed against the Act and the organizing authority's data-handling requirements.
 
 ---
 
 <a id="model-licensing"></a>
-## <img src="https://api.iconify.design/lucide/scale.svg?color=%23FF9933" height="26" align="absmiddle" alt=""> Model Licensing
+
+## <img src="https://api.iconify.design/lucide/scale.svg?color=%23FF9933" width="26" height="26" align="absmiddle" alt=""> Model Licensing
 
 Model licenses may block commercial or government deployment. Review them before shipping.
 
-| Model | Upstream license | Guidance |
-|---|---|---|
-| **YOLOv8 (Ultralytics)** | AGPL-3.0 or commercial | Obtain a commercial license, or swap in a permissively licensed detector (for example Apache-2.0) for proprietary deployments. |
-| **SCRFD / ArcFace (InsightFace)** | Upstream research checkpoints are limited to non-commercial academic evaluation | For operational use, train or source weights on permissively licensed data (for example Apache-2.0 Glint360k-based weights). |
+| Model                             | Upstream license                                                                | Guidance                                                                                                                       |
+| --------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| **YOLOv8 (Ultralytics)**          | AGPL-3.0 or commercial                                                          | Obtain a commercial license, or swap in a permissively licensed detector (for example Apache-2.0) for proprietary deployments. |
+| **SCRFD / ArcFace (InsightFace)** | Upstream research checkpoints are limited to non-commercial academic evaluation | For operational use, train or source weights on permissively licensed data (for example Apache-2.0 Glint360k-based weights).   |
