@@ -136,3 +136,33 @@ def count_by_status() -> dict[str, int]:
     with _connect() as conn:
         rows = conn.execute("SELECT status, COUNT(*) FROM cases GROUP BY status").fetchall()
     return {status: total for status, total in rows}
+
+
+def count_by_zone(unknown_label: str = "Unknown") -> dict[str, int]:
+    query = """
+        SELECT COALESCE(
+                   NULLIF(json_extract(data, '$.recommendation.current_zone.name'), ''),
+                   NULLIF(json_extract(data, '$.recommendation.current_zone.Name'), ''),
+                   ?
+               ) AS zone,
+               COUNT(*)
+        FROM cases
+        GROUP BY zone
+    """
+    with _connect() as conn:
+        rows = conn.execute(query, (unknown_label,)).fetchall()
+    return {zone: total for zone, total in rows}
+
+
+def average_minutes_since(statuses: tuple[str, ...]) -> float | None:
+    if not statuses:
+        return None
+    placeholders = ",".join("?" for _ in statuses)
+    query = f"""
+        SELECT AVG(CAST(json_extract(data, '$.report.last_seen.minutes_since') AS REAL))
+        FROM cases
+        WHERE status IN ({placeholders})
+    """
+    with _connect() as conn:
+        row = conn.execute(query, statuses).fetchone()
+    return row[0] if row and row[0] is not None else None
