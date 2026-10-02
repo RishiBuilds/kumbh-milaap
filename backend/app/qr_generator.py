@@ -67,7 +67,7 @@ def generate_qr_code(
 
     image = qr.make_image(fill_color="black", back_color="white")
     buffer = io.BytesIO()
-    image.save(buffer, format="PNG")
+    image.save(buffer, "PNG")
     return base64.b64encode(buffer.getvalue()).decode("ascii")
 
 
