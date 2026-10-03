@@ -11,16 +11,18 @@
 <br/>
 
 [![Next.js 16](https://img.shields.io/badge/Next.js_16-React_19-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-Python_3.11+-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_4-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![ONNX Runtime](https://img.shields.io/badge/ONNX_Runtime-005CED?style=for-the-badge&logo=onnx&logoColor=white)](https://onnxruntime.ai/)
 [![Leaflet](https://img.shields.io/badge/Leaflet_GIS-199900?style=for-the-badge&logo=leaflet&logoColor=white)](https://leafletjs.com/)
 [![Docker](https://img.shields.io/badge/Docker_Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![Tests Passing](https://img.shields.io/badge/Tests-18%20Passed-brightgreen?style=for-the-badge&logo=pytest&logoColor=white)](#testing--verification)
 [![DPDP Act Aligned](https://img.shields.io/badge/Privacy-DPDP_Act_Aligned-2E7D32?style=for-the-badge)](#privacy)
 
 <br/>
 
-[Overview](#overview) · [Features](#features) · [Architecture](#architecture) · [Quick Start](#quick-start) · [Configuration](#configuration) · [Computer Vision](#computer-vision) · [Privacy](#privacy) · [Model Licensing](#model-licensing)
+[Overview](#overview) · [Features](#features) · [Architecture](#architecture) · [Project Structure](#project-structure) · [Quick Start](#quick-start) · [API Reference](#api-reference) · [Configuration](#configuration) · [Computer Vision](#computer-vision) · [Testing & Verification](#testing--verification) · [Privacy](#privacy) · [Model Licensing](#model-licensing)
 
 </div>
 
