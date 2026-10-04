@@ -7,46 +7,32 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter), 'Noto Sans Devanagari', system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
-  --font-serif: var(--font-playfair), 'Noto Serif Devanagari', Georgia, serif;
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-sans: var(--font-inter), "Noto Sans Devanagari", system-ui, sans-serif;
+  --font-serif: var(--font-playfair), "Noto Serif Devanagari", Georgia, serif;
+  --font-heading: var(--font-serif);
+
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-xl: calc(var(--radius) * 1.35);
   --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
 
   --color-saffron: var(--brand-saffron);
   --color-saffron-light: var(--brand-saffron-light);
@@ -69,196 +55,213 @@
 }
 
 :root {
-  --background: #FAF8FF;
-  --foreground: #1A1033;
-  --card: #FFFFFF;
-  --card-foreground: #1A1033;
-  --popover: #FFFFFF;
-  --popover-foreground: #1A1033;
-  --primary: #7C3AED;
-  --primary-foreground: #FFFFFF;
-  --secondary: #F1ECFF;
-  --secondary-foreground: #2A1A55;
-  --muted: #EFEAFD;
-  --muted-foreground: #62588A;
-  --accent: #FFE4F1;
-  --accent-foreground: #7A1646;
-  --destructive: #E11D48;
-  --border: #E4DCFB;
-  --input: #E4DCFB;
-  --ring: #7C3AED;
-  --chart-1: #7C3AED;
-  --chart-2: #EC4899;
-  --chart-3: #F5B800;
-  --chart-4: #06B6D4;
-  --chart-5: #10B981;
-  --radius: 0.875rem;
+  --background: #FAF7F2;
+  --foreground: #2D2A26;
+  --card: #FFFDF9;
+  --card-foreground: #2D2A26;
+  --popover: #FFFDF9;
+  --popover-foreground: #2D2A26;
+  --primary: #B94D13;
+  --primary-foreground: #FFFDF9;
+  --secondary: #F4E5D1;
+  --secondary-foreground: #493327;
+  --muted: #F4EDE3;
+  --muted-foreground: #665D54;
+  --accent: #F8E6BE;
+  --accent-foreground: #5A3818;
+  --destructive: #B42318;
+  --border: #DED3C5;
+  --input: #CFC1B0;
+  --ring: #B94D13;
+  --radius: 1rem;
 
-  --sidebar: #F4F0FF;
-  --sidebar-foreground: #1A1033;
-  --sidebar-primary: #7C3AED;
-  --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #FFE4F1;
-  --sidebar-accent-foreground: #7A1646;
-  --sidebar-border: #E4DCFB;
-  --sidebar-ring: #7C3AED;
-
-  --brand-saffron: #7C3AED;
-  --brand-saffron-light: #A78BFA;
-  --brand-saffron-dark: #5B21B6;
-  --brand-marigold: #F5B800;
-  --brand-marigold-light: #FFD43B;
-  --brand-marigold-dark: #C98F00;
-  --brand-ivory: #FAF8FF;
-  --brand-ivory-warm: #F1ECFF;
-  --brand-charcoal: #1A1033;
-  --brand-charcoal-light: #4B3F72;
-  --brand-emerald: #10B981;
-  --brand-emerald-light: #34D399;
-  --brand-emerald-dark: #047857;
-  --brand-beige: #E4DCFB;
-  --brand-beige-warm: #D0C3F5;
-  --brand-terracotta: #EC4899;
-  --brand-cream: #FFFDF5;
-  --ink-surface: #140B2E;
+  --brand-saffron: #D4621A;
+  --brand-saffron-light: #F08A45;
+  --brand-saffron-dark: #9C3D0B;
+  --brand-marigold: #E6A817;
+  --brand-marigold-light: #F4C84E;
+  --brand-marigold-dark: #9A6500;
+  --brand-ivory: #FAF7F2;
+  --brand-ivory-warm: #F3E9DA;
+  --brand-charcoal: #2D2A26;
+  --brand-charcoal-light: #5B544D;
+  --brand-emerald: #16765D;
+  --brand-emerald-light: #3DA887;
+  --brand-emerald-dark: #075840;
+  --brand-beige: #E4D7C6;
+  --brand-beige-warm: #F1E7DA;
+  --brand-terracotta: #B94D13;
+  --brand-cream: #FFFDF9;
+  --ink-surface: #211F2B;
 }
 
 .dark {
-  --background: #0D0820;
-  --foreground: #F5F0FF;
-  --card: #170F32;
-  --card-foreground: #F5F0FF;
-  --popover: #170F32;
-  --popover-foreground: #F5F0FF;
-  --primary: #9B6BFF;
-  --primary-foreground: #0D0820;
-  --secondary: #211748;
-  --secondary-foreground: #F5F0FF;
-  --muted: #211748;
-  --muted-foreground: #A79CCB;
-  --accent: #2A1A55;
-  --accent-foreground: #FFB8DD;
-  --destructive: #FF5C7A;
-  --border: rgba(255, 255, 255, 0.10);
-  --input: rgba(255, 255, 255, 0.13);
-  --ring: #9B6BFF;
-  --chart-1: #9B6BFF;
-  --chart-2: #FF5FB0;
-  --chart-3: #FFD43B;
-  --chart-4: #22D3EE;
-  --chart-5: #34D399;
+  --background: #171923;
+  --foreground: #FAF7F2;
+  --card: #212330;
+  --card-foreground: #FAF7F2;
+  --popover: #272936;
+  --popover-foreground: #FAF7F2;
+  --primary: #F08A45;
+  --primary-foreground: #211F2B;
+  --secondary: #323442;
+  --secondary-foreground: #FAF7F2;
+  --muted: #2B2D3A;
+  --muted-foreground: #D6CEC4;
+  --accent: #483322;
+  --accent-foreground: #FFE1BD;
+  --destructive: #FF8A80;
+  --border: #444552;
+  --input: #51525E;
+  --ring: #F4C84E;
 
-  --sidebar: #170F32;
-  --sidebar-foreground: #F5F0FF;
-  --sidebar-primary: #9B6BFF;
-  --sidebar-primary-foreground: #0D0820;
-  --sidebar-accent: #2A1A55;
-  --sidebar-accent-foreground: #FFB8DD;
-  --sidebar-border: rgba(255, 255, 255, 0.10);
-  --sidebar-ring: #9B6BFF;
-
-  --brand-saffron: #9B6BFF;
-  --brand-saffron-light: #BBA0FF;
-  --brand-saffron-dark: #7C3AED;
-  --brand-marigold: #FFD43B;
-  --brand-marigold-light: #FFE16B;
-  --brand-marigold-dark: #F5B800;
-  --brand-ivory: #0D0820;
-  --brand-ivory-warm: #170F32;
-  --brand-charcoal: #F5F0FF;
-  --brand-charcoal-light: #CFC5EE;
-  --brand-emerald: #34D399;
-  --brand-emerald-light: #6EE7B7;
-  --brand-emerald-dark: #10B981;
-  --brand-beige: rgba(255, 255, 255, 0.10);
-  --brand-beige-warm: rgba(255, 255, 255, 0.06);
-  --brand-terracotta: #FF5FB0;
-  --brand-cream: #170F32;
-  --ink-surface: #080515;
+  --brand-saffron: #F08A45;
+  --brand-saffron-light: #FFB277;
+  --brand-saffron-dark: #D4621A;
+  --brand-marigold: #F4C84E;
+  --brand-marigold-light: #FFE39A;
+  --brand-marigold-dark: #D9A320;
+  --brand-ivory: #171923;
+  --brand-ivory-warm: #212330;
+  --brand-charcoal: #FAF7F2;
+  --brand-charcoal-light: #D6CEC4;
+  --brand-emerald: #54C49C;
+  --brand-emerald-light: #87E0BD;
+  --brand-emerald-dark: #2B9A77;
+  --brand-beige: #444552;
+  --brand-beige-warm: #2B2D3A;
+  --brand-terracotta: #FF9A69;
+  --brand-cream: #212330;
+  --ink-surface: #101119;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
+
   html {
     @apply font-sans;
     scroll-behavior: smooth;
   }
-  ::selection { background: color-mix(in srgb, var(--brand-saffron) 24%, transparent); }
-}
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  body {
+    @apply bg-background text-foreground;
+    text-rendering: optimizeLegibility;
+    font-size: 16px;
   }
 
-  .font-display {
-    font-family: var(--font-playfair), Georgia, 'Times New Roman', serif;
-  }
-
-  .border-ornate {
-    border-image: linear-gradient(
-      135deg,
-      var(--brand-saffron) 0%,
-      var(--brand-marigold) 25%,
-      var(--brand-saffron) 50%,
-      var(--brand-marigold) 75%,
-      var(--brand-saffron) 100%
-    ) 1;
-  }
-
-  .bg-kumbh-gradient {
-    background: linear-gradient(135deg, var(--brand-ivory) 0%, var(--brand-ivory-warm) 50%, var(--brand-beige) 100%);
-  }
-
-  .bg-saffron-gradient {
-    background: linear-gradient(135deg, var(--brand-saffron) 0%, var(--brand-saffron-dark) 100%);
-  }
-
-  .bg-hero-pattern {
-    background-color: var(--background);
-    background-image:
-      radial-gradient(circle at 20% 50%, color-mix(in srgb, var(--brand-saffron) 5%, transparent) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, color-mix(in srgb, var(--brand-marigold) 4%, transparent) 0%, transparent 50%),
-      radial-gradient(circle at 60% 80%, color-mix(in srgb, var(--brand-emerald) 4%, transparent) 0%, transparent 50%);
-  }
-
-  .focus-ring {
+  button,
+  a,
+  input,
+  select,
+  textarea {
     @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
   }
 
-  .eyebrow {
-    @apply text-xs font-semibold uppercase tracking-[0.2em];
-    color: var(--brand-saffron);
+  ::selection {
+    background: color-mix(in srgb, var(--primary) 25%, transparent);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-playfair), "Noto Serif Devanagari", Georgia, serif;
   }
 
-  .pill {
-    @apply rounded-full;
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[.16em];
+    color: var(--brand-saffron-dark);
+  }
+
+  .bg-kumbh-gradient {
+    background:
+      radial-gradient(
+        circle at 80% 10%,
+        color-mix(in srgb, var(--brand-marigold) 22%, transparent),
+        transparent 32%
+      ),
+      linear-gradient(
+        135deg,
+        var(--brand-ivory),
+        var(--brand-ivory-warm)
+      );
+  }
+
+  .bg-hero-pattern {
+    background:
+      radial-gradient(
+        circle at 18% 35%,
+        color-mix(in srgb, var(--brand-saffron) 11%, transparent),
+        transparent 25%
+      ),
+      radial-gradient(
+        circle at 78% 12%,
+        color-mix(in srgb, var(--brand-marigold) 14%, transparent),
+        transparent 25%
+      ),
+      var(--background);
   }
 
   .card-hover {
-    @apply transition-all duration-300 ease-out;
+    @apply transition-all duration-200;
   }
+
   .card-hover:hover {
-    @apply shadow-lg -translate-y-0.5;
+    @apply -translate-y-0.5 shadow-lg;
   }
 }
 
 .temple-skyline path {
-  fill: var(--brand-beige-warm);
-  transition: fill 0.3s ease;
-}
-.dark .temple-skyline path {
-  fill: #170F32;
+  fill: var(--ink-surface);
 }
 
 .dark img:not([data-no-overlay]) {
-  filter: brightness(0.92);
+  filter: brightness(0.9) saturate(0.9);
 }
 
-.dark .bg-white { background-color: var(--card); }
-.dark .shadow-xl, .dark .shadow-2xl { box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3); }
+.leaflet-control-zoom a,
+.leaflet-control-attribution {
+  background: var(--card) !important;
+  color: var(--muted-foreground) !important;
+  border-color: var(--border) !important;
+}
+
+.leaflet-control-attribution a {
+  color: var(--primary) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: "Segoe UI", "Noto Sans Devanagari", Arial, sans-serif;
+}
+
+.font-display {
+  font-family: Georgia, "Noto Serif Devanagari", serif;
+}
+
+.dark .bg-white {
+  background-color: var(--card);
+}
+
+.dark .bg-white\/95 {
+  background-color: color-mix(in srgb, var(--card) 95%, transparent);
+}
+
+.km-dark-basemap .leaflet-tile-pane {
+  filter: grayscale(1) invert(0.9) hue-rotate(180deg) brightness(0.68) contrast(1.15);
+}
+
+.km-light-basemap .leaflet-tile-pane {
+  filter: grayscale(0.35) sepia(0.12) brightness(1.05);
+}
