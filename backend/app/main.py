@@ -12,7 +12,7 @@ from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import JSONResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
-from .routes import cases, recommend, geodata, stats, search
+from .routes import cases, recommend, geodata, stats, search, cv
 
 APP_NAME = "Kumbh Milaap API"
 APP_VERSION = os.getenv("KUMBH_API_VERSION", "1.0.0")
@@ -47,6 +47,7 @@ TAGS_METADATA = [
     {"name": "geodata", "description": "GeoJSON layers for zones, cameras, police stations and chokepoints."},
     {"name": "stats", "description": "Live aggregate figures for the admin dashboard."},
     {"name": "search", "description": "Look up cases by name or case ID."},
+    {"name": "computer-vision", "description": "Person detection, clothing color extraction, face detection and quality assessment."},
     {"name": "root", "description": "API information and health checks."},
 ]
 
@@ -171,6 +172,7 @@ app.include_router(recommend.router)
 app.include_router(geodata.router)
 app.include_router(stats.router)
 app.include_router(search.router)
+app.include_router(cv.router)
 
 
 @app.get("/", tags=["root"], summary="API information")
