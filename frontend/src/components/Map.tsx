@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useTheme } from "next-themes";
 import { MapContainer, TileLayer, Marker, Popup, Circle, CircleMarker, Polyline, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
@@ -155,14 +156,15 @@ export default function KumbhMap({
   height = 500,
   showControls = true,
 }: MapProps) {
+  const { resolvedTheme } = useTheme();
   const [layers, setLayers] = useState<Record<LayerKey, boolean>>({
     cctv: true,
     police: true,
     chokepoints: true,
-    background: true,
+    background: false,
     route: true,
   });
-  const [panelOpen, setPanelOpen] = useState(true);
+  const [panelOpen, setPanelOpen] = useState(false);
   const [fitSignal, setFitSignal] = useState(0);
 
   const cctvData = useGeoPoints(DATASETS.cctv);
@@ -202,11 +204,8 @@ export default function KumbhMap({
     <div className="relative z-0 h-full w-full overflow-hidden rounded-md border border-border shadow-sm" style={{ minHeight: height }}>
       <style>{STYLES}</style>
 
-      <MapContainer center={lastSeenPos ?? DEFAULT_CENTER} zoom={14} style={{ height }} className="w-full" scrollWheelZoom>
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
+      <MapContainer center={lastSeenPos ?? DEFAULT_CENTER} zoom={14} style={{ height }} className={`w-full ${resolvedTheme === "dark" ? "km-dark-basemap" : "km-light-basemap"}`} scrollWheelZoom>
+        <TileLayer attribution='&copy; OpenStreetMap contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
         <Viewport points={focusPoints} lastSeen={lastSeenPos} radius={searchRadius} fitSignal={fitSignal} />
 
@@ -292,7 +291,7 @@ export default function KumbhMap({
               L.DomEvent.disableScrollPropagation(el);
             }
           }}
-          className="absolute right-3 top-3 z-[1000] w-56 rounded-lg border border-border bg-background/95 text-foreground shadow-md backdrop-blur"
+          className="absolute right-3 top-3 z-[1000] min-w-44 rounded-xl border border-border bg-background/95 text-foreground shadow-lg backdrop-blur"
         >
           <button
             type="button"
@@ -301,24 +300,24 @@ export default function KumbhMap({
             className="flex w-full items-center justify-between px-3 py-2 text-sm font-semibold"
           >
             Map layers
-            <span aria-hidden className="text-xs text-muted-foreground">{panelOpen ? "Hide" : "Show"}</span>
+            <span aria-hidden className="text-base leading-none text-muted-foreground">{panelOpen ? "−" : "+"}</span>
           </button>
 
           {panelOpen && (
             <div className="space-y-1 border-t border-border px-3 py-2">
-              {(Object.keys(LAYER_LABELS) as LayerKey[]).map((key) => (
+              {(Object.keys(LAYER_LABELS) as LayerKey[]).filter((key) => counts[key] || key === "background").map((key) => (
                 <label key={key} className="flex cursor-pointer items-center gap-2 py-1 text-sm">
                   <input type="checkbox" checked={layers[key]} onChange={() => toggle(key)} className="h-4 w-4 accent-current" />
-                  <span aria-hidden className="h-3 w-3 shrink-0 rounded-full" style={{ backgroundColor: LAYER_LABELS[key].color }} />
+                  <span aria-hidden className={`grid h-4 w-4 shrink-0 place-items-center text-[10px] font-bold ${key === "route" ? "rounded-none" : "rounded-full"}`} style={{ backgroundColor: LAYER_LABELS[key].color, color: "white" }}>{key === "chokepoints" ? "!" : key === "police" ? "P" : key === "cctv" ? "C" : key === "route" ? "→" : "•"}</span>
                   <span className="flex-1">{LAYER_LABELS[key].label}</span>
                   <span className="text-xs text-muted-foreground">{counts[key]}</span>
                 </label>
               ))}
 
               <div className="flex items-center gap-3 border-t border-border pt-2 text-xs text-muted-foreground">
-                <span className="flex items-center gap-1"><span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: COLORS.risk.high }} />High</span>
-                <span className="flex items-center gap-1"><span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: COLORS.risk.medium }} />Medium</span>
-                <span className="flex items-center gap-1"><span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: COLORS.risk.low }} />Low</span>
+                <span className="flex items-center gap-1"><span className="grid h-3 w-3 place-items-center rounded-full text-[8px] text-white" style={{ backgroundColor: COLORS.risk.high }}>!</span>High</span>
+                <span className="flex items-center gap-1"><span className="h-3 w-3 rotate-45" style={{ backgroundColor: COLORS.risk.medium }} />Medium</span>
+                <span className="flex items-center gap-1"><span className="h-3 w-3" style={{ backgroundColor: COLORS.risk.low }} />Low</span>
               </div>
 
               <button
