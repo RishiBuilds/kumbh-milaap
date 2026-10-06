@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from fastapi import HTTPException
+from fastapi import APIRouter, HTTPException
 from fastapi import status as http_status
 
 from ..models import SearchRecommendation
@@ -12,6 +12,7 @@ from ..ai_summary import generate_ai_summary
 DEFAULT_SUBJECT_NAME = "Unknown Subject"
 DEFAULT_CLOTHING = "not specified"
 
+router = APIRouter(prefix="/api/recommend", tags=["recommend"])
 engine = RecommendationEngine()
 
 
