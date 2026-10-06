@@ -144,7 +144,7 @@ export default function KioskPage() {
   const [result, setResult] = useState<KioskResult | null>(null);
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
   const [scanType, setScanType] = useState<ScanType | null>(null);
-  const [selectedKiosk, setSelectedKiosk] = useState<string>(ZONES[0].kiosk);
+  const [selectedKiosk, setSelectedKiosk] = useState<string>(ZONES[0]?.kiosk ?? "");
   const [camWidth, setCamWidth] = useState(256);
   const [camError, setCamError] = useState(false);
 
@@ -320,7 +320,7 @@ export default function KioskPage() {
 
     if (scanType === "report_missing") {
       handleUpdate("clothing", "Blue shirt, patterned (auto-detected)");
-      handleUpdate("zone", ZONES.find((z) => z.kiosk === selectedKiosk)?.id ?? ZONES[0].id);
+      handleUpdate("zone", ZONES.find((z) => z.kiosk === selectedKiosk)?.id ?? ZONES[0]?.id ?? "");
       setStep(2);
       return;
     }
@@ -425,6 +425,9 @@ export default function KioskPage() {
         </a>
 
         <SiteNavbar onEmergency={() => openFlow("lost")} />
+        <button onClick={() => openFlow("lost")} className="fixed bottom-4 right-4 z-40 inline-flex min-h-12 items-center gap-2 rounded-full bg-saffron px-5 text-sm font-bold text-white shadow-xl shadow-saffron/30 md:hidden">
+          <LifeBuoy className="h-5 w-5" /> SOS: I am lost
+        </button>
 
         <main id="main">
           <section className="relative overflow-hidden">
@@ -471,9 +474,9 @@ export default function KioskPage() {
                 <motion.button
                   variants={fadeUp}
                   onClick={() => { setStep(0); openFlow("lost"); }}
-                  className="inline-flex items-center gap-2 rounded-md text-sm font-bold text-saffron underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-saffron"
+                  className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-ink-surface px-5 text-base font-bold text-white shadow-lg transition-colors hover:bg-charcoal"
                 >
-                  <LifeBuoy size={18} strokeWidth={1.75} /> I am lost and need help now
+                  <LifeBuoy size={20} strokeWidth={1.75} /> SOS: I am lost and need help now
                 </motion.button>
               </motion.div>
 
@@ -618,6 +621,15 @@ export default function KioskPage() {
                 ))}
               </ul>
             </motion.div>
+          </section>
+
+          <section className="border-t border-beige/40 bg-white py-20 md:py-28">
+            <div className="mx-auto grid max-w-5xl gap-10 px-6 lg:grid-cols-[.8fr_1.2fr] lg:px-8">
+              <div><p className="eyebrow mb-4">Common questions</p><h2 className="font-display text-3xl font-bold text-charcoal md:text-4xl">Clear answers when every minute matters.</h2></div>
+              <div className="space-y-3">
+                {[["Is there a cost to use this service?", "No. Reporting, searching and asking for help are free at Kumbh Milaap kiosks and on this page."], ["What information is stored?", "We use the details needed to coordinate a safe reunion. Clothing metadata is used for matching; no biometric profile is kept."], ["What if I do not speak English?", "A volunteer can help at a kiosk. The interface is ready for English, Hindi and Marathi."]].map(([question, answer]) => <details key={question} className="group rounded-2xl border border-beige/70 bg-ivory/50 p-5"><summary className="cursor-pointer list-none pr-8 text-base font-bold text-charcoal marker:hidden">{question}<span className="float-right text-saffron group-open:rotate-45">+</span></summary><p className="mt-3 leading-relaxed text-charcoal-light/75">{answer}</p></details>)}
+              </div>
+            </div>
           </section>
 
           <section className="relative overflow-hidden py-20 text-white md:py-28" style={{ backgroundColor: "var(--ink-surface)" }}>
