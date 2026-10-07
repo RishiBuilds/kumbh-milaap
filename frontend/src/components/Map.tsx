@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { useTheme } from "next-themes";
+import { useTheme } from "@/components/PreferencesProvider";
 import { MapContainer, TileLayer, Marker, Popup, Circle, CircleMarker, Polyline, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import { TILE_LAYER_PROPS } from "@/lib/map/tiles";
 
 type LatLng = [number, number];
 
@@ -205,7 +206,7 @@ export default function KumbhMap({
       <style>{STYLES}</style>
 
       <MapContainer center={lastSeenPos ?? DEFAULT_CENTER} zoom={14} style={{ height }} className={`w-full ${resolvedTheme === "dark" ? "km-dark-basemap" : "km-light-basemap"}`} scrollWheelZoom>
-        <TileLayer attribution='&copy; OpenStreetMap contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <TileLayer {...TILE_LAYER_PROPS} />
 
         <Viewport points={focusPoints} lastSeen={lastSeenPos} radius={searchRadius} fitSignal={fitSignal} />
 
@@ -276,7 +277,7 @@ export default function KumbhMap({
           <Marker position={[police.latitude, police.longitude]} icon={ICONS.police} zIndexOffset={500}>
             <Popup>
               <div className="font-semibold">Police: {police.name}</div>
-              <div className="text-sm font-bold text-red-600">Alert this station</div>
+              <div className="text-sm font-bold text-danger-text">Alert this station</div>
               <div className="text-sm">Distance: {formatDistance(police.distance_m)}</div>
             </Popup>
           </Marker>
@@ -308,7 +309,7 @@ export default function KumbhMap({
               {(Object.keys(LAYER_LABELS) as LayerKey[]).filter((key) => counts[key] || key === "background").map((key) => (
                 <label key={key} className="flex cursor-pointer items-center gap-2 py-1 text-sm">
                   <input type="checkbox" checked={layers[key]} onChange={() => toggle(key)} className="h-4 w-4 accent-current" />
-                  <span aria-hidden className={`grid h-4 w-4 shrink-0 place-items-center text-[10px] font-bold ${key === "route" ? "rounded-none" : "rounded-full"}`} style={{ backgroundColor: LAYER_LABELS[key].color, color: "white" }}>{key === "chokepoints" ? "!" : key === "police" ? "P" : key === "cctv" ? "C" : key === "route" ? "→" : "•"}</span>
+                  <span aria-hidden className={`grid h-4 w-4 shrink-0 place-items-center text-2xs font-bold ${key === "route" ? "rounded-none" : "rounded-full"}`} style={{ backgroundColor: LAYER_LABELS[key].color, color: "white" }}>{key === "chokepoints" ? "!" : key === "police" ? "P" : key === "cctv" ? "C" : key === "route" ? "→" : "•"}</span>
                   <span className="flex-1">{LAYER_LABELS[key].label}</span>
                   <span className="text-xs text-muted-foreground">{counts[key]}</span>
                 </label>
