@@ -94,7 +94,7 @@ export function ImageCollage({
       <div className="absolute left-[2%] top-[10%] flex max-w-[58%] items-start gap-3 rounded-2xl bg-background/95 p-3 pr-4 shadow-lg ring-1 ring-border backdrop-blur-sm md:max-w-[250px]">
         <span
           aria-hidden
-          className="grid size-9 shrink-0 place-items-center rounded-xl bg-saffron/15 text-saffron"
+          className="grid size-9 shrink-0 place-items-center rounded-xl bg-primary-subtle text-saffron"
         >
           <HeartHandshake size={19} strokeWidth={1.75} />
         </span>
