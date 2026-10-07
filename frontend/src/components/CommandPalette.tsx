@@ -10,7 +10,7 @@ import {
   X,
   type LucideIcon,
 } from "lucide-react";
-import { useTheme } from "next-themes";
+import { useTheme } from "@/components/PreferencesProvider";
 
 type Flow = "find" | "report" | "lost";
 
@@ -163,7 +163,7 @@ export function CommandPalette({
         </div>
 
         <div className="p-2">
-          <p className="px-2 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+          <p className="px-2 py-2 text-2xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
             Go to
           </p>
 
